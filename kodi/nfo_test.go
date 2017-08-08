@@ -8,7 +8,7 @@ import (
 )
 
 func TestUnmarshallMarshall(t *testing.T) {
-	xmlFile, err := os.Open("movie.nfo")
+	xmlFile, err := os.Open("../movie.nfo")
 	if err != nil {
 		panic(err)
 	}
