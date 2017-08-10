@@ -14,7 +14,7 @@ func main() {
 	flag.Parse()
 
 	if t == "movies" {
-		movies := kodi.NewMovies(d)
-		movies.Scan()
+		stor := kodi.NewMovieStorage(d)
+		stor.Scan()
 	}
 }
