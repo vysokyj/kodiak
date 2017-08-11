@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<movie>
+    <title>Jan Hus</title>
+    <originaltitle>Jan Hus</originaltitle>
+    <rating>0</rating>
+    <votes>0</votes>
+    <top250>0</top250>
+    <year>1954</year>
+    <plot>První díl husitské revoluční trilogie zachycuje období od května roku 1412 do léta roku 1415, onu vzrušenou dobu českého království, v níž dochází v Praze k projevům odporu proti kupčení s „všemocnými odpustky" jejichž prodej po celém království vyhlásil římský papež Jan XXIII. Ideovým vůdcem tohoto hnutí je kazatel Mistr Jan Hus, jehož slovům, žádajícím odstranění církevních zlořádů, naslouchají v Betlemské kapli tisíce prostých Pražanů, čeští páni i královna Žofie, manželka českého krále Václava IV. Po vyhlášení papežského interdiktu nad Prahou odchází Hus na venkov, kde pokračuje v šíření svého učení mezi prostým lidem, živořícím v poddanství šlechtických i církevních vrchností. Na podzim roku 1414 se Jan Hus vydá v doprovodu českých pánů do Kostnice, aby tu před církevním koncilem obhájil své učení. Církevní představitelé však kategoricky žádají, aby Hus odvolal to, čemu učil, a když tak Hus neučiní, odsoudí ho jako kacíře k potupné smrti upálením.</plot>
+    <outline>První díl husitské revoluční trilogie zachycuje období od května roku 1412 do léta roku 1415, onu vzrušenou dobu českého království, v níž dochází v Praze k projevům odporu proti kupčení s „všemocnými odpustky" jejichž prodej po celém království vyhlásil římský papež Jan XXIII. Ideovým vůdcem tohoto hnutí je kazatel Mistr Jan Hus, jehož slovům, žádajícím odstranění církevních zlořádů, naslouchají v Betlemské kapli tisíce prostých Pražanů, čeští páni i královna Žofie, manželka českého krále Václava IV. Po vyhlášení papežského interdiktu nad Prahou odchází Hus na venkov, kde pokračuje v šíření svého učení mezi prostým lidem, živořícím v poddanství šlechtických i církevních vrchností. Na podzim roku 1414 se Jan Hus vydá v doprovodu českých pánů do Kostnice, aby tu před církevním koncilem obhájil své učení. Církevní představitelé však kategoricky žádají, aby Hus odvolal to, čemu učil, a když tak Hus neučiní, odsoudí ho jako kacíře k potupné smrti upálením.</outline>
+    <tagline></tagline>
+    <mpaa></mpaa>
+    <playcount>0</playcount>
+    <id>tt0047128</id>
+    <tmdbid>143824</tmdbid>
+    <set>Husitská revoluční trilogie</set>
+    <sorttitle></sorttitle>
+    <trailer></trailer>
+    <watched>false</watched>
+    <runtime>115</runtime>
+    <credits></credits>
+    <director>Otakar Vávra</director>
+    <genre>Drama</genre>
+    <country>Czech Republic</country>
+    <thumb preview="http://image.tmdb.org/t/p/w342/fTlFfgMzj63EydR5ZWOresNL61e.jpg">http://image.tmdb.org/t/p/original/fTlFfgMzj63EydR5ZWOresNL61e.jpg</thumb>
+    <thumb preview="http://image.tmdb.org/t/p/w342/fL92lnSBDC60oq8aqcphmbIHqhS.jpg">http://image.tmdb.org/t/p/original/fL92lnSBDC60oq8aqcphmbIHqhS.jpg</thumb>
+    <fileinfo>
+        <streamdetails>
+            <video>
+                <aspect>1.778</aspect>
+                <codec>h264</codec>
+                <durationinseconds>12</durationinseconds>
+                <height>90</height>
+                <scantype>progressive</scantype>
+                <width>160</width>
+            </video>
+            <audio>
+                <channels>2</channels>
+                <codec>vorbis</codec>
+            </audio>
+        </streamdetails>
+    </fileinfo>
+</movie>
