@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 
-	"github.com/vysokyj/kodiak/kodi"
+	"github.com/vysokyj/kodiak/storage"
 )
 
 func main() {
@@ -13,8 +13,7 @@ func main() {
 	flag.StringVar(&d, "d", "./", "Directory")
 	flag.Parse()
 
-	if t == "movies" {
-		stor := kodi.NewMovieStorage(d)
-		stor.Scan()
-	}
+	storage := storage.NewStorage(d)
+	storage.Scan()
+
 }

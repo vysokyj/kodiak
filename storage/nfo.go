@@ -1,4 +1,4 @@
-package kodi
+package storage
 
 import (
 	"encoding/xml"
