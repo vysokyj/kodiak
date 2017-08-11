@@ -2,6 +2,8 @@ package storage
 
 import (
 	"encoding/xml"
+	"io/ioutil"
+	"os"
 )
 
 // Movie is root xml element
@@ -86,4 +88,21 @@ type Audio struct {
 	XMLName  xml.Name `xml:"audio"`
 	Channels int      `xml:"channels"`
 	Codec    string   `xml:"codec"`
+}
+
+// NewMovie scand movie.nfo
+func NewMovie(path string) *Movie {
+	xmlFile, err := os.Open(path)
+	if err != nil {
+		panic(err)
+	}
+	defer xmlFile.Close()
+	b, _ := ioutil.ReadAll(xmlFile)
+
+	movie := &Movie{}
+	err = xml.Unmarshal(b, &movie)
+	if err != nil {
+		panic(err)
+	}
+	return movie
 }

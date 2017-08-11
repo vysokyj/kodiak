@@ -14,6 +14,5 @@ func main() {
 	flag.Parse()
 
 	storage := storage.NewStorage(d)
-	storage.Scan()
-
+	storage.List()
 }

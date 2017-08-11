@@ -1,7 +1,9 @@
 package storage
 
 import (
+	"fmt"
 	"io/ioutil"
+	"os"
 	"path"
 )
 
@@ -22,12 +24,25 @@ func NewStorage(dir string) *Storage {
 
 // Scan movies data
 func (s *Storage) Scan() {
+	s.bundles = s.bundles[:0]
 	files, _ := ioutil.ReadDir(s.dir)
 	for _, fi := range files {
 		if fi.IsDir() {
 			dir := path.Join(s.dir, fi.Name())
-			bundle := NewBundle(dir)
-			s.bundles = append(s.bundles, bundle)
+			bundle, err := NewBundle(dir)
+			if err != nil {
+				fmt.Fprintf(os.Stderr, "Skipping directoy %s - %s\n", dir, err)
+			} else {
+				s.bundles = append(s.bundles, bundle)
+			}
+
 		}
+	}
+}
+
+// List writes out storage content
+func (s *Storage) List() {
+	for _, b := range s.bundles {
+		fmt.Println(b)
 	}
 }
