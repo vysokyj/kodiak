@@ -124,8 +124,8 @@ func (b *Bundle) Movie() *Movie {
 
 // Expand names
 func (b *Bundle) Expand() {
-	b.renameContainers(b.movie.Title)
-	b.renameDirectory(b.TitleAndYear())
+	b.renameContainers(SecureFileName(b.movie.Title))
+	b.renameDirectory(SecureFileName(b.TitleAndYear()))
 }
 
 // Reduce names
