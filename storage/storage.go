@@ -35,7 +35,6 @@ func (s *Storage) Scan() {
 			} else {
 				s.bundles = append(s.bundles, bundle)
 			}
-
 		}
 	}
 }
@@ -44,5 +43,19 @@ func (s *Storage) Scan() {
 func (s *Storage) List() {
 	for _, b := range s.bundles {
 		fmt.Println(b)
+	}
+}
+
+// Expand names
+func (s *Storage) Expand() {
+	for _, b := range s.bundles {
+		b.Expand()
+	}
+}
+
+// Reduce names
+func (s *Storage) Reduce() {
+	for _, b := range s.bundles {
+		b.Reduce()
 	}
 }
