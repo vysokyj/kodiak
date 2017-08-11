@@ -5,12 +5,13 @@ import (
 	"io/ioutil"
 	"os"
 	"path"
+	"sort"
 )
 
 // Storage is directory with bundles
 type Storage struct {
 	dir     string
-	bundles []*Bundle
+	bundles Bundles
 }
 
 // NewStorage creates new movies database base on some directory root
@@ -37,12 +38,20 @@ func (s *Storage) Scan() {
 			}
 		}
 	}
+	sort.Sort(s.bundles)
 }
 
 // List writes out storage content
 func (s *Storage) List() {
 	for _, b := range s.bundles {
 		fmt.Println(b)
+	}
+}
+
+// ListWithDirectories writes out storage content
+func (s *Storage) ListWithDirectories() {
+	for _, b := range s.bundles {
+		fmt.Printf("%s : %s\n", b, b.Directory())
 	}
 }
 

@@ -11,17 +11,32 @@ import (
 
 // Bundle is directory with movie/series and its metadata files
 type Bundle struct {
-	dir        string
-	parDir     string
-	movie      *Movie
-	containers []string
+	dir        string   // immutable parent directory
+	dirName    string   // mutable bundle directory
+	movie      *Movie   // movie NFO data
+	containers []string // movie containers
+}
+
+// Bundles is array
+type Bundles []*Bundle
+
+func (slice Bundles) Len() int {
+	return len(slice)
+}
+
+func (slice Bundles) Less(i, j int) bool {
+	return slice[i].TitleAndYear() < slice[j].TitleAndYear()
+}
+
+func (slice Bundles) Swap(i, j int) {
+	slice[i], slice[j] = slice[j], slice[i]
 }
 
 // NewBundle creates new bundle
 func NewBundle(dir string) (*Bundle, error) {
 	b := new(Bundle)
-	b.parDir = path.Dir(dir)
-	b.dir = path.Base(dir)
+	b.dir = path.Dir(dir)
+	b.dirName = path.Base(dir)
 	b.containers = make([]string, 0, 1)
 	err := b.Scan()
 	if err != nil {
@@ -34,8 +49,8 @@ func (b *Bundle) renameContainers(newBase string) {
 	for i := 0; i < len(b.containers); i++ {
 		con := b.containers[i]
 		ext := strings.ToLower(path.Ext(con))
-		oldPath := path.Join(b.parDir, b.dir, con)
-		newPath := path.Join(b.parDir, b.dir, newBase+ext)
+		oldPath := path.Join(b.dir, b.dirName, con)
+		newPath := path.Join(b.dir, b.dirName, newBase+ext)
 		if oldPath == newPath {
 			return
 		}
@@ -50,8 +65,8 @@ func (b *Bundle) renameContainers(newBase string) {
 }
 
 func (b *Bundle) renameDirectory(newBase string) {
-	oldPath := path.Join(b.parDir, b.dir)
-	newPath := path.Join(b.parDir, newBase)
+	oldPath := path.Join(b.dir, b.dirName)
+	newPath := path.Join(b.dir, newBase)
 	if oldPath == newPath {
 		return
 	}
@@ -66,12 +81,12 @@ func (b *Bundle) renameDirectory(newBase string) {
 
 // Scan check and load bundle content files
 func (b *Bundle) Scan() error {
-	files, _ := ioutil.ReadDir(b.dir)
+	files, _ := ioutil.ReadDir(path.Join(b.dir, b.dirName))
 	for _, f := range files {
 		name := f.Name()
 		ext := strings.ToLower(path.Ext(name))
 		if ext == ".nfo" {
-			b.movie = NewMovie(path.Join(b.dir, name))
+			b.movie = NewMovie(path.Join(b.dir, b.dirName, name))
 		}
 		if ext == ".avi" || ext == ".mkv" || ext == ".mp4" {
 			b.containers = append(b.containers, name)
@@ -81,6 +96,11 @@ func (b *Bundle) Scan() error {
 		return errors.New("Missing movie.nfo")
 	}
 	return nil
+}
+
+// Directory is directory with bundle files
+func (b *Bundle) Directory() string {
+	return path.Join(b.dir, b.dirName)
 }
 
 // TitleAndYear returns movie name and year

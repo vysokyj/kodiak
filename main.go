@@ -10,11 +10,13 @@ func main() {
 	var t string
 	var d string
 	var l bool
+	var ld bool
 	var e bool
 	var r bool
 	flag.StringVar(&t, "t", "movies", "Type: movies or series")
 	flag.StringVar(&d, "d", "./", "Directory")
 	flag.BoolVar(&l, "l", false, "List database")
+	flag.BoolVar(&ld, "ld", false, "List database with directories")
 	flag.BoolVar(&e, "e", false, "Expand database names")
 	flag.BoolVar(&r, "r", false, "Reduce database names")
 	flag.Parse()
@@ -31,6 +33,10 @@ func main() {
 
 	if l {
 		storage.List()
+	}
+
+	if ld {
+		storage.ListWithDirectories()
 	}
 
 }
