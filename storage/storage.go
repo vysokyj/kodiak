@@ -31,7 +31,7 @@ func (s *Storage) Scan() {
 			dir := path.Join(s.dir, fi.Name())
 			bundle, err := NewBundle(dir)
 			if err != nil {
-				fmt.Fprintf(os.Stderr, "Skipping directoy %s - %s\n", dir, err)
+				fmt.Fprintf(os.Stderr, "Skipping directory %s - %s\n", dir, err)
 			} else {
 				s.bundles = append(s.bundles, bundle)
 			}
