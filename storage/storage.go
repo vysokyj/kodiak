@@ -30,6 +30,7 @@ func (s *Storage) Scan() {
 	for _, fi := range files {
 		if fi.IsDir() {
 			dir := path.Join(s.dir, fi.Name())
+			fmt.Println(dir)
 			bundle, err := NewBundle(dir)
 			if err != nil {
 				fmt.Fprintf(os.Stderr, "Skipping directory %s - %s\n", dir, err)

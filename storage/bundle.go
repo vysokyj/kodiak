@@ -88,7 +88,7 @@ func (b *Bundle) Scan() error {
 		if ext == ".nfo" {
 			b.movie = NewMovie(path.Join(b.dir, b.dirName, name))
 		}
-		if ext == ".avi" || ext == ".mkv" || ext == ".mp4" {
+		if ext == ".avi" || ext == ".mkv" || ext == ".mp4" || ext == ".m4v" {
 			b.containers = append(b.containers, name)
 		}
 	}

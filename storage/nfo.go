@@ -74,13 +74,14 @@ type StreamDetails struct {
 
 // Video holds vido data
 type Video struct {
-	XMLName           xml.Name `xml:"video"`
-	Aspect            float32  `xml:"aspect"`
-	Codec             string   `xml:"codec"`
-	DurationInSeconds int64    `xml:"durationinseconds"`
-	Height            int      `xml:"height"`
-	Width             int      `xml:"width"`
-	Scantype          string   `xml:"scantype"`
+	XMLName xml.Name `xml:"video"`
+	//Aspect            float32  `xml:"aspect"`
+	Aspect            string `xml:"aspect"`
+	Codec             string `xml:"codec"`
+	DurationInSeconds int64  `xml:"durationinseconds"`
+	Height            int    `xml:"height"`
+	Width             int    `xml:"width"`
+	Scantype          string `xml:"scantype"`
 }
 
 // Audio holds audio data
