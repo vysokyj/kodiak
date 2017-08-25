@@ -34,6 +34,7 @@ func (slice Bundles) Swap(i, j int) {
 
 // NewBundle creates new bundle
 func NewBundle(dir string) (*Bundle, error) {
+	fmt.Printf("BUNDLE: %s", dir)
 	b := new(Bundle)
 	b.dir = path.Dir(dir)
 	b.dirName = path.Base(dir)
@@ -86,7 +87,11 @@ func (b *Bundle) Scan() error {
 		name := f.Name()
 		ext := strings.ToLower(path.Ext(name))
 		if ext == ".nfo" {
-			b.movie = NewMovie(path.Join(b.dir, b.dirName, name))
+			movie, err := NewMovie(path.Join(b.dir, b.dirName, name))
+			if err != nil {
+				return err
+			}
+			b.movie = movie
 		}
 		if ext == ".avi" || ext == ".mkv" || ext == ".mp4" || ext == ".m4v" {
 			b.containers = append(b.containers, name)

@@ -92,7 +92,7 @@ type Audio struct {
 }
 
 // NewMovie scand movie.nfo
-func NewMovie(path string) *Movie {
+func NewMovie(path string) (*Movie, error) {
 	xmlFile, err := os.Open(path)
 	if err != nil {
 		panic(err)
@@ -103,7 +103,8 @@ func NewMovie(path string) *Movie {
 	movie := &Movie{}
 	err = xml.Unmarshal(b, &movie)
 	if err != nil {
-		panic(err)
+		return nil, err
+	} else {
+		return movie, nil
 	}
-	return movie
 }
