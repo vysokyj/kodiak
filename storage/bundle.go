@@ -34,7 +34,6 @@ func (slice Bundles) Swap(i, j int) {
 
 // NewBundle creates new bundle
 func NewBundle(dir string) (*Bundle, error) {
-	fmt.Printf("BUNDLE: %s", dir)
 	b := new(Bundle)
 	b.dir = path.Dir(dir)
 	b.dirName = path.Base(dir)
